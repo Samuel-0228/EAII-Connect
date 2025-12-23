@@ -11,8 +11,12 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center overflow-hidden bg-slate-900">
-        <div className="absolute inset-0 opacity-40">
-          <img src="https://picsum.photos/seed/ethiopia-ai/1920/1080" alt="Tech" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 opacity-60">
+          <img 
+            src="https://i.imgur.com/gYvH0ij.jpeg" 
+            alt="Ethiopian Youth and AI" 
+            className="w-full h-full object-cover" 
+          />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
         </div>
         
@@ -53,9 +57,9 @@ const Home: React.FC<HomeProps> = ({ onNavigate }) => {
             <div className="relative">
               <div className="absolute -top-6 -left-6 w-24 h-24 bg-[#fcd116]/20 rounded-full blur-3xl"></div>
               <img 
-                src="https://picsum.photos/seed/institute/800/600" 
-                alt="Institute" 
-                className="rounded-3xl shadow-2xl relative z-10" 
+                src="https://www.ena.et/documents/42142/0/493728865_1022436889990920_744494240735112150_n.jpg/4be166ee-a9ca-b3dd-9049-1df80418faa9?version=1.0&t=1747722651506&download=true" 
+                alt="EAII Mission in Action" 
+                className="rounded-3xl shadow-2xl relative z-10 object-cover aspect-video" 
               />
               <div className="absolute -bottom-10 -right-10 bg-white p-6 rounded-2xl shadow-xl z-20 hidden lg:block border border-slate-100">
                 <div className="flex items-center space-x-4">

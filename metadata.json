@@ -1,0 +1,7 @@
+{
+  "name": "EAII Connect",
+  "description": "The official digital gateway for the Ethiopian Artificial Intelligence Institute, empowering citizens with AI education, public support, and innovation opportunities.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

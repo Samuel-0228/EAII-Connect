@@ -33,7 +33,7 @@ const Contribute: React.FC = () => {
               <li>You must only upload images/text that you have the right to share.</li>
             </ul>
           </div>
-          <button 
+          <button
             onClick={() => setIsAgreed(true)}
             className="w-full bg-[#00885a] text-white py-4 rounded-xl font-bold shadow-lg"
           >
@@ -45,13 +45,13 @@ const Contribute: React.FC = () => {
           {/* Main Workspace */}
           <div className="lg:col-span-2 space-y-8">
             <div className="flex bg-slate-100 p-1 rounded-xl">
-              <button 
+              <button
                 onClick={() => setActiveTask('upload')}
                 className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-lg font-bold transition-all ${activeTask === 'upload' ? 'bg-white shadow-md text-[#00885a]' : 'text-slate-500'}`}
               >
                 <Camera size={18} /> <span>Upload Images</span>
               </button>
-              <button 
+              <button
                 onClick={() => setActiveTask('label')}
                 className={`flex-1 flex items-center justify-center space-x-2 py-3 rounded-lg font-bold transition-all ${activeTask === 'label' ? 'bg-white shadow-md text-[#00885a]' : 'text-slate-500'}`}
               >
@@ -88,14 +88,14 @@ const Contribute: React.FC = () => {
                   <span className="bg-[#fcd116] text-slate-900 px-3 py-1 rounded-full text-xs font-bold">Task: Local Foods</span>
                 </div>
                 <div className="aspect-video bg-slate-100 rounded-2xl mb-6 overflow-hidden relative">
-                   <img src="https://picsum.photos/seed/teff/800/450" alt="Label task" className="w-full h-full object-cover" />
+                  <img src="https://thumbs.dreamstime.com/b/cultural-food-ethiopia-s-called-genfo-its-152731942.jpg?referrer=grok.com" alt="Label task" className="w-full h-full object-cover" />
                 </div>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                   {['Injera', 'Doro Wat', 'Kollo', 'Genfo'].map(label => (
-                     <button key={label} className="bg-slate-50 border border-slate-200 py-3 rounded-xl font-bold hover:bg-[#00885a] hover:text-white hover:border-[#00885a] transition-all">
-                       {label}
-                     </button>
-                   ))}
+                  {['Injera', 'Doro Wat', 'Kollo', 'Genfo'].map(label => (
+                    <button key={label} className="bg-slate-50 border border-slate-200 py-3 rounded-xl font-bold hover:bg-[#00885a] hover:text-white hover:border-[#00885a] transition-all">
+                      {label}
+                    </button>
+                  ))}
                 </div>
                 <div className="mt-8 pt-8 border-t flex items-center justify-between">
                   <p className="text-sm text-slate-500">Can't see clearly? <button className="underline">Skip</button></p>
@@ -107,36 +107,36 @@ const Contribute: React.FC = () => {
 
           {/* Sidebar */}
           <div className="space-y-6">
-             <div className="bg-slate-900 rounded-3xl p-6 text-white overflow-hidden relative">
-               <Award size={80} className="absolute -right-6 -bottom-6 opacity-20 text-[#fcd116]" />
-               <h3 className="font-bold text-xl mb-4 flex items-center">
-                 <Award className="mr-2 text-[#fcd116]" size={20} /> Leaderboard
-               </h3>
-               <div className="space-y-4">
-                 {leaderboard.map(u => (
-                   <div key={u.rank} className="flex items-center justify-between">
-                     <div className="flex items-center">
-                       <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold mr-3 ${u.rank === 1 ? 'bg-[#fcd116] text-slate-900' : 'bg-white/10'}`}>
-                         {u.rank}
-                       </span>
-                       <span className="text-sm font-medium">{u.name}</span>
-                     </div>
-                     <span className="text-sm font-bold text-[#fcd116]">{u.points} pts</span>
-                   </div>
-                 ))}
-               </div>
-               <button className="w-full mt-6 bg-white/10 border border-white/20 py-2 rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-white/20 transition-colors">
-                 View All Rankings
-               </button>
-             </div>
+            <div className="bg-slate-900 rounded-3xl p-6 text-white overflow-hidden relative">
+              <Award size={80} className="absolute -right-6 -bottom-6 opacity-20 text-[#fcd116]" />
+              <h3 className="font-bold text-xl mb-4 flex items-center">
+                <Award className="mr-2 text-[#fcd116]" size={20} /> Leaderboard
+              </h3>
+              <div className="space-y-4">
+                {leaderboard.map(u => (
+                  <div key={u.rank} className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <span className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold mr-3 ${u.rank === 1 ? 'bg-[#fcd116] text-slate-900' : 'bg-white/10'}`}>
+                        {u.rank}
+                      </span>
+                      <span className="text-sm font-medium">{u.name}</span>
+                    </div>
+                    <span className="text-sm font-bold text-[#fcd116]">{u.points} pts</span>
+                  </div>
+                ))}
+              </div>
+              <button className="w-full mt-6 bg-white/10 border border-white/20 py-2 rounded-lg text-xs font-bold uppercase tracking-wider hover:bg-white/20 transition-colors">
+                View All Rankings
+              </button>
+            </div>
 
-             <div className="bg-[#fcd116]/10 border border-[#fcd116]/30 p-6 rounded-3xl">
-               <h4 className="font-bold text-slate-900 mb-2">Rewards Program</h4>
-               <p className="text-sm text-slate-700 mb-4">Top contributors monthly receive early access to premium AI models and official EAII certification.</p>
-               <div className="flex items-center space-x-2 text-[#00885a]">
-                 <Check size={16} /> <span className="text-xs font-bold uppercase">Certificate Eligibility</span>
-               </div>
-             </div>
+            <div className="bg-[#fcd116]/10 border border-[#fcd116]/30 p-6 rounded-3xl">
+              <h4 className="font-bold text-slate-900 mb-2">Rewards Program</h4>
+              <p className="text-sm text-slate-700 mb-4">Top contributors monthly receive early access to premium AI models and official EAII certification.</p>
+              <div className="flex items-center space-x-2 text-[#00885a]">
+                <Check size={16} /> <span className="text-xs font-bold uppercase">Certificate Eligibility</span>
+              </div>
+            </div>
           </div>
         </div>
       )}

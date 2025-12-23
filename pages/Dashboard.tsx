@@ -7,9 +7,10 @@ import { BarChart as ReBarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Resp
 
 interface DashboardProps {
   user: User;
+  lang: string;
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ user }) => {
+const Dashboard: React.FC<DashboardProps> = ({ user, lang }) => {
   const data = [
     { name: 'Mon', count: 400 },
     { name: 'Tue', count: 300 },
@@ -145,13 +146,19 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
               <div className="bg-white p-6 rounded-3xl border border-slate-200">
                 <h3 className="font-bold text-slate-900 mb-6">Recent Approvals</h3>
                 <div className="space-y-4">
-                  {[1, 2, 3, 4, 5].map(i => (
+                  {[
+                    { name: 'Israel K.', type: 'Startup License' },
+                    { name: 'Temesgen B.', type: 'Research Grant' },
+                    { name: 'Kidus S.', type: 'Training Cert' },
+                    { name: 'Saba T.', type: 'Project Funding' },
+                    { name: 'Hanna M.', type: 'Workshop Access' }
+                  ].map((req, i) => (
                     <div key={i} className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100">
                       <div className="flex items-center">
-                        <div className="w-8 h-8 rounded-full bg-[#00885a] text-white flex items-center justify-center text-xs font-bold mr-3">JD</div>
+                        <div className="w-8 h-8 rounded-full bg-[#00885a] text-white flex items-center justify-center text-xs font-bold mr-3">{req.name.split(' ')[0][0]}</div>
                         <div>
-                          <p className="text-xs font-bold">John Doe</p>
-                          <p className="text-[10px] text-slate-500">Startup License</p>
+                          <p className="text-xs font-bold">{req.name}</p>
+                          <p className="text-[10px] text-slate-500">{req.type}</p>
                         </div>
                       </div>
                       <span className="text-[10px] font-bold text-green-600 bg-green-100 px-2 py-1 rounded">Approved</span>
@@ -164,12 +171,12 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
         </div>
       )}
 
-      {/* Trainer Dashboard - Simple placeholder */}
+      {/* Trainer Dashboard */}
       {user.role === UserRole.TRAINER && (
         <div className="p-20 bg-white rounded-3xl border-2 border-dashed text-center">
            <Users size={48} className="mx-auto text-slate-300 mb-4" />
            <h3 className="font-bold text-xl mb-2">Trainer Dashboard Loaded</h3>
-           <p className="text-slate-500">Manage your students, grading, and course curriculum from here.</p>
+           <p className="text-slate-500">Manage your students (like Kidus and Israel), grading, and course curriculum from here.</p>
         </div>
       )}
     </div>

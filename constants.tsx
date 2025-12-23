@@ -9,6 +9,51 @@ export const THEME = {
   slate: '#334155'
 };
 
+export const TRANSLATIONS: Record<string, any> = {
+  en: {
+    home: "Home",
+    support: "Support",
+    education: "Education",
+    contribute: "Contribute",
+    innovation: "Innovation",
+    login: "Login",
+    heroTitle: "Powering Ethiopia's AI Revolution",
+    heroSub: "Advancing national prosperity through artificial intelligence.",
+    startLearning: "Start Learning AI",
+    getSupport: "Get Support",
+    mission: "Our Mission",
+    missionText: "The Ethiopian Artificial Intelligence Institute (EAII) was established to spearhead the nation's journey into the 4th Industrial Revolution.",
+  },
+  am: {
+    home: "መነሻ",
+    support: "ድጋፍ",
+    education: "ትምህርት",
+    contribute: "ተሳትፎ",
+    innovation: "ፈጠራ",
+    login: "ይግቡ",
+    heroTitle: "የኢትዮጵያን የሰው ሰራሽ አስተውሎት አብዮት ማጎልበት",
+    heroSub: "በሰው ሰራሽ አስተውሎት አማካኝነት የሀገርን ብልጽግና ማረጋገጥ።",
+    startLearning: "መማር ይጀምሩ",
+    getSupport: "ድጋፍ ያግኙ",
+    mission: "ራዕያችን",
+    missionText: "የኢትዮጵያ ሰው ሰራሽ አስተውሎት ኢንስቲትዩት (EAII) ሀገሪቱን ወደ 4ኛው የኢንዱስትሪ አብዮት ለማሸጋገር የተቋቋመ ነው።",
+  },
+  om: {
+    home: "Ka'umsa",
+    support: "Deeggarsa",
+    education: "Barnoota",
+    contribute: "Gumaacha",
+    innovation: "Mala-fayyadama",
+    login: "Seenaa",
+    heroTitle: "Inqilaaba AI Itoophiyaa Humneessu",
+    heroSub: "Barnoota nam-tolchee fayyadamuun badhaadhina biyyaalessaa guddisuu.",
+    startLearning: "Barachuu Jalqabaa",
+    getSupport: "Deeggarsa Argadhaa",
+    mission: "Ergaa Keenya",
+    missionText: "Dhaabbanni Saayinsii Nam-tolchee Itoophiyaa (EAII) biyyattii gara inqilaaba induustrii 4ffaa qajeelchuuf hundeeffame.",
+  }
+};
+
 export const COURSES: Course[] = [
   { id: '1', title: 'Intro to AI for Kids', category: 'Kids', progress: 80, image: 'https://picsum.photos/seed/kids/400/250' },
   { id: '2', title: 'Python for Data Science', category: 'Youth', progress: 45, image: 'https://picsum.photos/seed/py/400/250' },
@@ -17,15 +62,15 @@ export const COURSES: Course[] = [
 ];
 
 export const STARTUPS: Startup[] = [
-  { id: 's1', title: 'AgriTech AI', founder: 'Abebe B.', description: 'Using computer vision to detect crop diseases in Teff.', tags: ['Agriculture', 'Vision'] },
-  { id: 's2', title: 'HealthSync', founder: 'Marta K.', description: 'AI-driven diagnostic tool for remote health clinics.', tags: ['Healthcare', 'NLP'] },
-  { id: 's3', title: 'Amharic Voice', founder: 'Yonas S.', description: 'High-quality TTS for local languages.', tags: ['Speech', 'Amharic'] },
+  { id: 's1', title: 'AgriTech AI', founder: 'Temesgen B.', description: 'Using computer vision to detect crop diseases in Teff.', tags: ['Agriculture', 'Vision'] },
+  { id: 's2', title: 'HealthSync', founder: 'Israel K.', description: 'AI-driven diagnostic tool for remote health clinics.', tags: ['Healthcare', 'NLP'] },
+  { id: 's3', title: 'Afaan Voice', founder: 'Kidus S.', description: 'High-quality TTS for local languages.', tags: ['Speech', 'Afaan Oromo'] },
 ];
 
 export const NAV_LINKS = [
-  { name: 'Home', path: '#home' },
-  { name: 'Support', path: '#support' },
-  { name: 'Education', path: '#education' },
-  { name: 'Contribute', path: '#contribute' },
-  { name: 'Innovation', path: '#innovation' },
+  { name: 'Home', path: '#home', key: 'home' },
+  { name: 'Support', path: '#support', key: 'support' },
+  { name: 'Education', path: '#education', key: 'education' },
+  { name: 'Contribute', path: '#contribute', key: 'contribute' },
+  { name: 'Innovation', path: '#innovation', key: 'innovation' },
 ];

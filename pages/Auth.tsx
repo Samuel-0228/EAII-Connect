@@ -5,20 +5,21 @@ import { LogIn, Info } from 'lucide-react';
 
 interface AuthProps {
   onLogin: (user: User) => void;
+  lang: string;
 }
 
-const Auth: React.FC<AuthProps> = ({ onLogin }) => {
+const Auth: React.FC<AuthProps> = ({ onLogin, lang }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email === 'admin@gmail.com') {
-      onLogin({ email, role: UserRole.ADMIN, name: 'Admin User' });
+      onLogin({ email, role: UserRole.ADMIN, name: 'Admin Israel' });
     } else if (email === 'trainer@gmail.com') {
-      onLogin({ email, role: UserRole.TRAINER, name: 'Prof. Kassahun' });
+      onLogin({ email, role: UserRole.TRAINER, name: 'Prof. Temesgen' });
     } else {
-      onLogin({ email, role: UserRole.TRAINEE, name: 'Trainee Abebe' });
+      onLogin({ email, role: UserRole.TRAINEE, name: 'Trainee Kidus' });
     }
   };
 

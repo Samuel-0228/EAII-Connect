@@ -44,7 +44,7 @@ const App: React.FC = () => {
       case '#home': return <Home onNavigate={handleNavigate} lang={lang} />;
       case '#support': return <Support lang={lang} />;
       case '#education': return <Education lang={lang} />;
-      case '#contribute': return <Contribute lang={lang} />;
+      case '#contribute': return <Contribute lang={lang} user={user} onNavigate={handleNavigate} />;
       case '#innovation': return <Innovation lang={lang} />;
       case '#login': return <Auth onLogin={handleLogin} lang={lang} />;
       case '#dashboard': return user ? <Dashboard user={user} lang={lang} /> : <Auth onLogin={handleLogin} lang={lang} />;

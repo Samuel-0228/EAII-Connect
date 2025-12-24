@@ -199,7 +199,7 @@ const Contribute: React.FC<ContributeProps> = ({ lang, user, onNavigate }) => {
       {/* Login Prompt Modal */}
       {showLoginPrompt && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] flex items-center justify-center p-4">
-          <div className="bg-white w-full max-w-sm rounded-3xl p-8 text-center animate-in zoom-in duration-300">
+          <div className="bg-white w-full max-sm rounded-3xl p-8 text-center animate-in zoom-in duration-300">
             <div className="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <AlertCircle size={32} />
             </div>

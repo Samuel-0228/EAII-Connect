@@ -24,7 +24,7 @@ const Support: React.FC<SupportProps> = ({ lang }) => {
           <CheckCircle size={40} />
         </div>
         <h2 className="text-3xl font-bold text-slate-900 mb-4">{lang === 'en' ? 'Request Submitted!' : lang === 'am' ? 'ጥያቄው ተልኳል!' : 'Gaaffiin Ergameera!'}</h2>
-        <p className="text-slate-600 mb-8">{lang === 'en' ? 'Your appointment request has been received. You will receive a confirmation shortly.' : lang === 'am' ? 'የቀጠሮ ጥያቄዎ ደርሶናል። በቅርቡ ማረጋገጫ ይላክልዎታል።' : 'Gaaffiin beellama keessanii nu ga'eera. Gabaabumatti mirkaneessaa ni argattu.'}</p>
+        <p className="text-slate-600 mb-8">{lang === 'en' ? 'Your appointment request has been received. You will receive a confirmation shortly.' : lang === 'am' ? 'የቀጠሮ ጥያቄዎ ደርሶናል። በቅርቡ ማረጋገጫ ይላክልዎታል።' : `Gaaffiin beellama keessanii nu ga'eera. Gabaabumatti mirkaneessaa ni argattu.`}</p>
         <button 
           onClick={() => {setSubmitted(false); setStep(1);}}
           className="bg-[#00885a] text-white px-8 py-3 rounded-lg font-bold"

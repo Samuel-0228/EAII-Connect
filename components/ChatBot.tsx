@@ -40,7 +40,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ lang }) => {
   const welcomes: Record<string, string> = {
     en: "👋 Selam! How can I help you with EAII services today?",
     am: "👋 ሰላም! ዛሬ ስለ EAII አገልግሎቶች እንዴት ልረዳዎ እችላለሁ?",
-    om: "👋 Selam! Tajaajila EAII irratti akkamitti si gargaaruu danda'a?"
+    om: `👋 Selam! Tajaajila EAII irratti akkamitti si gargaaruu danda'a?`
   };
 
   return (

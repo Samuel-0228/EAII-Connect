@@ -14,7 +14,6 @@ import { User, UserRole } from './types';
 const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [currentPath, setCurrentPath] = useState('#home');
-  const [lang, setLang] = useState<'en' | 'am' | 'om'>('en');
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -41,26 +40,20 @@ const App: React.FC = () => {
 
   const renderPage = () => {
     switch (currentPath) {
-      case '#home': return <Home onNavigate={handleNavigate} lang={lang} />;
-      case '#support': return <Support lang={lang} />;
-      case '#education': return <Education lang={lang} />;
-      case '#contribute': return <Contribute lang={lang} user={user} onNavigate={handleNavigate} />;
-      case '#innovation': return <Innovation lang={lang} />;
-      case '#login': return <Auth onLogin={handleLogin} lang={lang} />;
-      case '#dashboard': return user ? <Dashboard user={user} lang={lang} /> : <Auth onLogin={handleLogin} lang={lang} />;
-      default: return <Home onNavigate={handleNavigate} lang={lang} />;
+      case '#home': return <Home onNavigate={handleNavigate} />;
+      case '#support': return <Support />;
+      case '#education': return <Education />;
+      case '#contribute': return <Contribute />;
+      case '#innovation': return <Innovation />;
+      case '#login': return <Auth onLogin={handleLogin} />;
+      case '#dashboard': return user ? <Dashboard user={user} /> : <Auth onLogin={handleLogin} />;
+      default: return <Home onNavigate={handleNavigate} />;
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <Navbar 
-        user={user} 
-        onLogout={handleLogout} 
-        onNavigate={handleNavigate} 
-        lang={lang} 
-        setLang={setLang} 
-      />
+      <Navbar user={user} onLogout={handleLogout} onNavigate={handleNavigate} />
       
       <main className="flex-1 animate-in fade-in duration-500">
         {renderPage()}
@@ -102,7 +95,7 @@ const App: React.FC = () => {
         </div>
       </footer>
 
-      <ChatBot lang={lang} />
+      <ChatBot />
     </div>
   );
 };

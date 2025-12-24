@@ -5,23 +5,20 @@ import { LogIn, Info } from 'lucide-react';
 
 interface AuthProps {
   onLogin: (user: User) => void;
-  lang: string;
 }
 
-const Auth: React.FC<AuthProps> = ({ onLogin, lang }) => {
+const Auth: React.FC<AuthProps> = ({ onLogin }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email === 'admin@gmail.com') {
-      onLogin({ email, role: UserRole.ADMIN, name: 'Admin Israel' });
+      onLogin({ email, role: UserRole.ADMIN, name: 'Admin User' });
     } else if (email === 'trainer@gmail.com') {
-      onLogin({ email, role: UserRole.TRAINER, name: 'Prof. Temesgen' });
-    } else if (email === 'alem@gmail.com') {
-      onLogin({ email, role: UserRole.TRAINEE, name: 'Alem M.' });
+      onLogin({ email, role: UserRole.TRAINER, name: 'Prof. Kassahun' });
     } else {
-      onLogin({ email, role: UserRole.TRAINEE, name: 'Trainee Kidus' });
+      onLogin({ email, role: UserRole.TRAINEE, name: 'Trainee Abebe' });
     }
   };
 
@@ -33,7 +30,7 @@ const Auth: React.FC<AuthProps> = ({ onLogin, lang }) => {
             <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <LogIn size={32} />
             </div>
-            <h2 className="text-2xl font-bold">{lang === 'en' ? 'Welcome Back' : 'እንኳን ደህና መጡ'}</h2>
+            <h2 className="text-2xl font-bold">Welcome Back</h2>
             <p className="text-white/60 text-sm">Login to EAII Connect Portal</p>
           </div>
           
@@ -70,8 +67,8 @@ const Auth: React.FC<AuthProps> = ({ onLogin, lang }) => {
               </p>
               <div className="space-y-1 text-xs text-slate-600">
                 <p><span className="font-bold">Admin:</span> admin@gmail.com / 123</p>
-                <p><span className="font-bold">Alem:</span> alem@gmail.com / 123</p>
-                <p><span className="font-bold">Kidus:</span> trainee@gmail.com / 123</p>
+                <p><span className="font-bold">Trainer:</span> trainer@gmail.com / 123</p>
+                <p><span className="font-bold">Trainee:</span> trainee@gmail.com / 123</p>
               </div>
             </div>
           </form>

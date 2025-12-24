@@ -1,16 +1,12 @@
 
 import React from 'react';
 import { ArrowRight, BookOpen, Users, Lightbulb, ChevronRight } from 'lucide-react';
-import { TRANSLATIONS } from '../constants';
 
 interface HomeProps {
   onNavigate: (path: string) => void;
-  lang: 'en' | 'am' | 'om';
 }
 
-const Home: React.FC<HomeProps> = ({ onNavigate, lang }) => {
-  const t = TRANSLATIONS[lang];
-
+const Home: React.FC<HomeProps> = ({ onNavigate }) => {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
@@ -30,23 +26,24 @@ const Home: React.FC<HomeProps> = ({ onNavigate, lang }) => {
               Official Portal
             </span>
             <h1 className="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-              {t.heroTitle}
+              Powering Ethiopia's <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00885a] to-[#fcd116]">AI Revolution</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed">
-              {t.heroSub}
+              Advancing national prosperity through artificial intelligence. Reimagining an inclusive digital future for every Ethiopian citizen.
             </p>
             <div className="flex flex-wrap gap-4">
               <button 
                 onClick={() => onNavigate('#education')}
                 className="px-8 py-4 bg-[#00885a] rounded-xl font-bold flex items-center hover:bg-[#006b46] transition-all transform hover:translate-x-1"
               >
-                {t.startLearning} <ArrowRight size={20} className="ml-2" />
+                Start Learning AI <ArrowRight size={20} className="ml-2" />
               </button>
               <button 
                 onClick={() => onNavigate('#support')}
                 className="px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-xl font-bold hover:bg-white/20 transition-all"
               >
-                {t.getSupport}
+                Get Support
               </button>
             </div>
           </div>
@@ -78,10 +75,13 @@ const Home: React.FC<HomeProps> = ({ onNavigate, lang }) => {
             <div>
               <h2 className="text-3xl font-bold text-slate-900 mb-6 flex items-center">
                 <span className="w-10 h-1 bg-[#00885a] mr-4"></span>
-                {t.mission}
+                Our Mission
               </h2>
               <p className="text-slate-600 mb-6 leading-relaxed text-lg">
-                {t.missionText}
+                The Ethiopian Artificial Intelligence Institute (EAII) was established to spearhead the nation's journey into the 4th Industrial Revolution. Our mandate is to cultivate local talent, foster innovation, and deploy AI solutions that solve unique Ethiopian challenges in agriculture, healthcare, and governance.
+              </p>
+              <p className="text-slate-600 mb-10 leading-relaxed">
+                We bridge the gap between complex technology and citizen needs, ensuring that AI is a tool for equity and progress for all Ethiopians, regardless of language or location.
               </p>
               <div className="grid grid-cols-2 gap-6">
                 <div className="p-4 bg-slate-50 rounded-xl border border-slate-100">
@@ -107,45 +107,49 @@ const Home: React.FC<HomeProps> = ({ onNavigate, lang }) => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Support */}
             <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all group border border-slate-100 cursor-pointer" onClick={() => onNavigate('#support')}>
               <div className="w-14 h-14 bg-[#00885a]/10 rounded-2xl flex items-center justify-center text-[#00885a] mb-6 group-hover:scale-110 transition-transform">
                 <Users size={28} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{t.support}</h3>
-              <p className="text-slate-500 text-sm mb-6">Book appointments and get official institutional support.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Public Portal</h3>
+              <p className="text-slate-500 text-sm mb-6">Book appointments, submit requests, and get official institutional support.</p>
               <div className="flex items-center text-[#00885a] font-bold text-sm uppercase tracking-wider">
                 Access Now <ChevronRight size={16} className="ml-1" />
               </div>
             </div>
 
+            {/* Education */}
             <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all group border border-slate-100 cursor-pointer" onClick={() => onNavigate('#education')}>
               <div className="w-14 h-14 bg-[#fcd116]/10 rounded-2xl flex items-center justify-center text-[#9c8200] mb-6 group-hover:scale-110 transition-transform">
                 <BookOpen size={28} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{t.education}</h3>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">AI Literacy</h3>
               <p className="text-slate-500 text-sm mb-6">Gamified learning for kids and vocational AI training for youth.</p>
               <div className="flex items-center text-[#9c8200] font-bold text-sm uppercase tracking-wider">
                 Start Learning <ChevronRight size={16} className="ml-1" />
               </div>
             </div>
 
+            {/* Contribute */}
             <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all group border border-slate-100 cursor-pointer" onClick={() => onNavigate('#contribute')}>
               <div className="w-14 h-14 bg-[#da121a]/10 rounded-2xl flex items-center justify-center text-[#da121a] mb-6 group-hover:scale-110 transition-transform">
                 <Lightbulb size={28} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{t.contribute}</h3>
-              <p className="text-slate-500 text-sm mb-6">Help us train AI models by labeling local datasets.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Contribution</h3>
+              <p className="text-slate-500 text-sm mb-6">Help us train Amharic AI models by labeling images and local texts.</p>
               <div className="flex items-center text-[#da121a] font-bold text-sm uppercase tracking-wider">
                 Contribute <ChevronRight size={16} className="ml-1" />
               </div>
             </div>
 
+            {/* Innovation */}
             <div className="bg-white p-8 rounded-3xl shadow-sm hover:shadow-xl transition-all group border border-slate-100 cursor-pointer" onClick={() => onNavigate('#innovation')}>
               <div className="w-14 h-14 bg-slate-900/10 rounded-2xl flex items-center justify-center text-slate-900 mb-6 group-hover:scale-110 transition-transform">
                 <ArrowRight size={28} />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{t.innovation}</h3>
-              <p className="text-slate-500 text-sm mb-6">Startup support and skill-sharing for innovators.</p>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">Innovation Hub</h3>
+              <p className="text-slate-500 text-sm mb-6">Startup support, micro-grants, and skill-sharing for innovators.</p>
               <div className="flex items-center text-slate-900 font-bold text-sm uppercase tracking-wider">
                 Join Hub <ChevronRight size={16} className="ml-1" />
               </div>

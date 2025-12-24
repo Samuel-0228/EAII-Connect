@@ -3,11 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { MessageCircle, Send, X, Mic, Loader2 } from 'lucide-react';
 import { getAIResponse } from '../services/geminiService';
 
-interface ChatBotProps {
-  lang: string;
-}
-
-const ChatBot: React.FC<ChatBotProps> = ({ lang }) => {
+const ChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{role: 'user' | 'model', text: string}[]>([]);
   const [input, setInput] = useState('');
@@ -37,12 +33,6 @@ const ChatBot: React.FC<ChatBotProps> = ({ lang }) => {
     setMessages(prev => [...prev, { role: 'model', text: response || '' }]);
   };
 
-  const welcomes: Record<string, string> = {
-    en: "👋 Selam! How can I help you with EAII services today?",
-    am: "👋 ሰላም! ዛሬ ስለ EAII አገልግሎቶች እንዴት ልረዳዎ እችላለሁ?",
-    om: "👋 Selam! Tajaajila EAII irratti akkamitti si gargaaruu danda'a?"
-  };
-
   return (
     <div className="fixed bottom-6 right-6 z-[100]">
       {!isOpen ? (
@@ -65,7 +55,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ lang }) => {
               </div>
               <div>
                 <h3 className="font-bold text-sm">EAII Assistant</h3>
-                <p className="text-[10px] opacity-80 uppercase">{lang} Support</p>
+                <p className="text-[10px] opacity-80">Online | Amharic/English</p>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="hover:bg-black/10 p-1 rounded transition-colors">
@@ -77,7 +67,7 @@ const ChatBot: React.FC<ChatBotProps> = ({ lang }) => {
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 ethiopian-pattern">
             {messages.length === 0 && (
               <div className="text-center py-10 opacity-60">
-                <p className="text-sm">{welcomes[lang] || welcomes.en}</p>
+                <p className="text-sm">👋 Selam! How can I help you with EAII services today?</p>
               </div>
             )}
             {messages.map((m, i) => (

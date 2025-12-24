@@ -1,21 +1,17 @@
 
 import React, { useState } from 'react';
 import { User, UserRole } from '../types';
-import { Menu, X, User as UserIcon, LogOut, Globe } from 'lucide-react';
-import { THEME, NAV_LINKS, TRANSLATIONS } from '../constants';
+import { Menu, X, User as UserIcon, LogOut } from 'lucide-react';
+import { THEME, NAV_LINKS } from '../constants';
 
 interface NavbarProps {
   user: User | null;
   onLogout: () => void;
   onNavigate: (path: string) => void;
-  lang: 'en' | 'am' | 'om';
-  setLang: (lang: 'en' | 'am' | 'om') => void;
 }
 
-const Navbar: React.FC<NavbarProps> = ({ user, onLogout, onNavigate, lang, setLang }) => {
+const Navbar: React.FC<NavbarProps> = ({ user, onLogout, onNavigate }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [showLang, setShowLang] = useState(false);
-  const t = TRANSLATIONS[lang];
 
   return (
     <nav className="bg-white border-b sticky top-0 z-50 shadow-sm">
@@ -32,34 +28,16 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout, onNavigate, lang, setLa
           </div>
 
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             {NAV_LINKS.map(link => (
               <button 
                 key={link.path} 
                 onClick={() => onNavigate(link.path)}
-                className="text-slate-600 hover:text-[#00885a] font-medium transition-colors text-sm"
+                className="text-slate-600 hover:text-[#00885a] font-medium transition-colors"
               >
-                {t[link.key]}
+                {link.name}
               </button>
             ))}
-
-            {/* Language Switcher */}
-            <div className="relative">
-              <button 
-                onClick={() => setShowLang(!showLang)}
-                className="flex items-center space-x-1 text-slate-600 hover:text-[#00885a] font-medium text-sm border px-3 py-1 rounded-full"
-              >
-                <Globe size={14} />
-                <span className="uppercase">{lang}</span>
-              </button>
-              {showLang && (
-                <div className="absolute top-full right-0 mt-2 w-32 bg-white border rounded-xl shadow-xl p-2 z-[60]">
-                  <button onClick={() => { setLang('en'); setShowLang(false); }} className={`block w-full text-left px-3 py-2 rounded-lg text-sm ${lang === 'en' ? 'bg-slate-50 text-[#00885a] font-bold' : 'hover:bg-slate-50'}`}>English</button>
-                  <button onClick={() => { setLang('am'); setShowLang(false); }} className={`block w-full text-left px-3 py-2 rounded-lg text-sm ${lang === 'am' ? 'bg-slate-50 text-[#00885a] font-bold' : 'hover:bg-slate-50'}`}>አማርኛ</button>
-                  <button onClick={() => { setLang('om'); setShowLang(false); }} className={`block w-full text-left px-3 py-2 rounded-lg text-sm ${lang === 'om' ? 'bg-slate-50 text-[#00885a] font-bold' : 'hover:bg-slate-50'}`}>Afaan Oromo</button>
-                </div>
-              )}
-            </div>
             
             {user ? (
               <div className="flex items-center space-x-4 ml-4">
@@ -79,16 +57,13 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout, onNavigate, lang, setLa
                 onClick={() => onNavigate('#login')}
                 className="bg-[#00885a] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#006b46] transition-all transform active:scale-95"
               >
-                {t.login}
+                Login
               </button>
             )}
           </div>
 
           {/* Mobile toggle */}
-          <div className="md:hidden flex items-center space-x-4">
-            <button onClick={() => setLang(lang === 'en' ? 'am' : lang === 'am' ? 'om' : 'en')} className="text-slate-600 uppercase font-bold text-xs border p-1 rounded">
-              {lang}
-            </button>
+          <div className="md:hidden flex items-center">
             <button onClick={() => setIsOpen(!isOpen)} className="text-slate-600">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -105,7 +80,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout, onNavigate, lang, setLa
               onClick={() => { onNavigate(link.path); setIsOpen(false); }}
               className="block w-full text-left text-slate-600 hover:text-[#00885a] font-medium py-2"
             >
-              {t[link.key]}
+              {link.name}
             </button>
           ))}
           {!user && (
@@ -113,7 +88,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout, onNavigate, lang, setLa
               onClick={() => { onNavigate('#login'); setIsOpen(false); }}
               className="w-full bg-[#00885a] text-white px-6 py-3 rounded-lg font-semibold"
             >
-              {t.login}
+              Login
             </button>
           )}
           {user && (

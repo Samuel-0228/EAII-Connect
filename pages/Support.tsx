@@ -1,16 +1,10 @@
 
 import React, { useState } from 'react';
 import { Calendar, FileText, MessageSquare, Info, Upload, CheckCircle } from 'lucide-react';
-import { TRANSLATIONS } from '../constants';
 
-interface SupportProps {
-  lang: 'en' | 'am' | 'om';
-}
-
-const Support: React.FC<SupportProps> = ({ lang }) => {
+const Support: React.FC = () => {
   const [step, setStep] = useState(1);
   const [submitted, setSubmitted] = useState(false);
-  const t = TRANSLATIONS[lang];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,13 +17,13 @@ const Support: React.FC<SupportProps> = ({ lang }) => {
         <div className="w-20 h-20 bg-green-100 text-[#00885a] rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle size={40} />
         </div>
-        <h2 className="text-3xl font-bold text-slate-900 mb-4">{lang === 'en' ? 'Request Submitted!' : lang === 'am' ? 'ጥያቄው ተልኳል!' : 'Gaaffiin Ergameera!'}</h2>
-        <p className="text-slate-600 mb-8">{lang === 'en' ? 'Your appointment request has been received. You will receive a confirmation shortly.' : lang === 'am' ? 'የቀጠሮ ጥያቄዎ ደርሶናል። በቅርቡ ማረጋገጫ ይላክልዎታል።' : 'Gaaffiin beellama keessanii nu ga'eera. Gabaabumatti mirkaneessaa ni argattu.'}</p>
+        <h2 className="text-3xl font-bold text-slate-900 mb-4">Request Submitted!</h2>
+        <p className="text-slate-600 mb-8">Your appointment request has been received. You will receive a confirmation via SMS and Email shortly.</p>
         <button 
           onClick={() => {setSubmitted(false); setStep(1);}}
           className="bg-[#00885a] text-white px-8 py-3 rounded-lg font-bold"
         >
-          {lang === 'en' ? 'Book Another' : lang === 'am' ? 'ሌላ ይያዙ' : 'Kan biraa qabadhu'}
+          Book Another
         </button>
       </div>
     );
@@ -38,8 +32,8 @@ const Support: React.FC<SupportProps> = ({ lang }) => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div className="mb-12">
-        <h1 className="text-4xl font-bold text-slate-900 mb-4">{t.supportTitle}</h1>
-        <p className="text-slate-500">{t.supportSub}</p>
+        <h1 className="text-4xl font-bold text-slate-900 mb-4">Digital Support & Access Portal</h1>
+        <p className="text-slate-500">Access EAII services, book appointments, and submit institutional requests easily.</p>
       </div>
 
       <div className="grid lg:grid-cols-3 gap-12">
@@ -47,28 +41,28 @@ const Support: React.FC<SupportProps> = ({ lang }) => {
         <div className="lg:col-span-1 space-y-6">
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
             <h3 className="font-bold text-slate-900 mb-4 flex items-center">
-              <Info className="mr-2 text-[#00885a]" size={20} /> {lang === 'en' ? 'Guide' : 'መመሪያ'}
+              <Info className="mr-2 text-[#00885a]" size={20} /> Guide
             </h3>
             <ul className="space-y-4">
               <li className="flex items-start">
                 <div className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">1</div>
-                <p className="text-sm text-slate-600">{lang === 'en' ? 'Choose your service type.' : 'የአገልግሎት አይነት ይምረጡ።'}</p>
+                <p className="text-sm text-slate-600">Choose your service type from the list.</p>
               </li>
               <li className="flex items-start">
                 <div className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">2</div>
-                <p className="text-sm text-slate-600">{lang === 'en' ? 'Select a date and time.' : 'ቀን እና ሰዓት ይምረጡ።'}</p>
+                <p className="text-sm text-slate-600">Select a date and time for your meeting.</p>
               </li>
               <li className="flex items-start">
                 <div className="w-6 h-6 bg-slate-100 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">3</div>
-                <p className="text-sm text-slate-600">{lang === 'en' ? 'Upload documents.' : 'ሰነዶችን ይላኩ።'}</p>
+                <p className="text-sm text-slate-600">Upload necessary documents (ID, Proposal).</p>
               </li>
             </ul>
           </div>
 
           <div className="bg-[#00885a] p-6 rounded-2xl text-white shadow-lg relative overflow-hidden">
             <MessageSquare size={100} className="absolute -bottom-10 -right-10 opacity-10" />
-            <h3 className="font-bold text-xl mb-2">{lang === 'en' ? 'Need Help Now?' : 'እርዳታ ይፈልጋሉ?'}</h3>
-            <p className="text-white/80 text-sm mb-4">Our AI-powered assistant can help you with common questions.</p>
+            <h3 className="font-bold text-xl mb-2">Need Help Now?</h3>
+            <p className="text-white/80 text-sm mb-4">Our AI-powered assistant can help you with common questions and guide you through the booking process.</p>
             <p className="text-sm font-bold bg-white/20 inline-block px-3 py-1 rounded-full">Use the floating chat icon →</p>
           </div>
         </div>
@@ -77,13 +71,13 @@ const Support: React.FC<SupportProps> = ({ lang }) => {
         <div className="lg:col-span-2 bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
           <div className="flex border-b">
             <button className={`flex-1 py-4 font-bold text-sm flex items-center justify-center space-x-2 ${step === 1 ? 'text-[#00885a] border-b-2 border-[#00885a]' : 'text-slate-400'}`}>
-              <FileText size={18} /> <span>1. Info</span>
+              <FileText size={18} /> <span>1. Service Info</span>
             </button>
             <button className={`flex-1 py-4 font-bold text-sm flex items-center justify-center space-x-2 ${step === 2 ? 'text-[#00885a] border-b-2 border-[#00885a]' : 'text-slate-400'}`}>
               <Calendar size={18} /> <span>2. Schedule</span>
             </button>
             <button className={`flex-1 py-4 font-bold text-sm flex items-center justify-center space-x-2 ${step === 3 ? 'text-[#00885a] border-b-2 border-[#00885a]' : 'text-slate-400'}`}>
-              <Upload size={18} /> <span>3. Docs</span>
+              <Upload size={18} /> <span>3. Documents</span>
             </button>
           </div>
 
@@ -102,6 +96,10 @@ const Support: React.FC<SupportProps> = ({ lang }) => {
                     <option>Grant Inquiry</option>
                     <option>Research Permission</option>
                   </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-slate-700 mb-2">Purpose of Request</label>
+                  <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-[#00885a]/20 outline-none" placeholder="Briefly describe why you are visiting..."></textarea>
                 </div>
                 <button type="button" onClick={() => setStep(2)} className="w-full bg-[#00885a] text-white py-4 rounded-xl font-bold shadow-lg">Next Step</button>
               </div>
@@ -130,7 +128,8 @@ const Support: React.FC<SupportProps> = ({ lang }) => {
               <div className="space-y-6 animate-in fade-in duration-300">
                 <div className="border-2 border-dashed border-slate-200 rounded-2xl p-10 text-center hover:border-[#00885a] transition-colors cursor-pointer group">
                   <Upload className="mx-auto text-slate-400 group-hover:text-[#00885a] mb-4" size={40} />
-                  <p className="text-slate-600 font-medium">Click to upload documents</p>
+                  <p className="text-slate-600 font-medium">Click to upload or drag and drop</p>
+                  <p className="text-xs text-slate-400 mt-1">PDF, JPG, PNG (Max 10MB)</p>
                   <input type="file" className="hidden" />
                 </div>
                 <div className="flex gap-4">

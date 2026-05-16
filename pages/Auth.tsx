@@ -64,10 +64,7 @@ const Auth: React.FC<AuthProps> = ({ onLogin, lang }) => {
               Sign In
             </button>
             
-            <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 mt-6">
-              <p className="text-[10px] font-bold text-slate-400 uppercase mb-3 flex items-center">
-                <Info size={12} className="mr-1" /> Demo Credentials
-              </p>
+            
              
             </div>
           </form>

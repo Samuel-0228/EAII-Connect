@@ -68,11 +68,7 @@ const Auth: React.FC<AuthProps> = ({ onLogin, lang }) => {
               <p className="text-[10px] font-bold text-slate-400 uppercase mb-3 flex items-center">
                 <Info size={12} className="mr-1" /> Demo Credentials
               </p>
-              <div className="space-y-1 text-xs text-slate-600">
-                <p><span className="font-bold">Admin:</span> admin@gmail.com / 123</p>
-                <p><span className="font-bold">Alem:</span> alem@gmail.com / 123</p>
-                <p><span className="font-bold">Kidus:</span> trainee@gmail.com / 123</p>
-              </div>
+             
             </div>
           </form>
         </div>
